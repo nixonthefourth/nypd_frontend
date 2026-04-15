@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <nav>
+        <a href="admin_dashboard.html">dashboard</a>
+        <a href="admin_citations.html">citations</a>
+        <a href="admin_profile.html">profile</a>
+    </nav>
+
+    <div>
+        <h1>ADMIN DASHBOARD</h1>
+
+        <h2>SYSTEM OVERVIEW</h2>
+
+        <div>
+            <div>
+                <p>total citations</p>
+                <p id="stat-total">—</p>
+            </div>
+
+            <div>
+                <p>active citations</p>
+                <p id="stat-active">—</p>
+            </div>
+
+            <div>
+                <p>citations this month</p>
+                <p id="stat-month">—</p>
+            </div>
+
+            <div>
+                <p>total drivers</p>
+                <p id="stat-drivers">—</p>
+            </div>
+        </div>
+
+        <h2>CITATIONS BY VIOLATION TYPE</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>violation type</th>
+                    <th>count</th>
+                </tr>
+            </thead>
+            <tbody id="violations-table-body">
+                <tr>
+                    <td>speeding</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>red light</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>illegal parking</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>CITATIONS BY DISTRICT</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>district</th>
+                    <th>count</th>
+                </tr>
+            </thead>
+            <tbody id="districts-table-body">
+                <tr>
+                    <td>queens</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>brooklyn</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>manhattan</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer></footer>
+</body>
+</html>

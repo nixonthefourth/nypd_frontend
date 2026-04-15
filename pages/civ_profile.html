@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <nav>
+        <a href="civ_dashboard.html">dashboard</a>
+        <a href="civ_profile.html">profile</a>
+    </nav>
+
+    <div>
+        <h1>PROFILE</h1>
+
+        <div>
+            <p>first name</p>
+            <input type="text" value="jack" readonly><br>
+
+            <p>last name</p>
+            <input type="text" value="nicholson" readonly><br>
+
+            <p>license number</p>
+            <input type="text" value="ca1234567" readonly><br>
+
+            <p>issue state</p>
+            <input type="text" value="california" readonly><br>
+
+            <p>phone</p>
+            <input type="text" value="07411001102" readonly><br>
+
+            <p>email</p>
+            <input type="text" value="jacksemail@mymail.com" readonly><br>
+        </div>
+
+        <button type="button" onclick="document.getElementById('change-details-modal').style.display='block'">
+            CHANGE DETAILS
+        </button>
+    </div>
+
+    <div id="change-details-modal" style="display:none;">
+        <div>
+            <h2>CHANGE CONTACT DETAILS FORM</h2>
+
+            <form>
+                <label for="new_phone">phone number</label><br>
+                <input type="tel" name="new_phone" id="new_phone" placeholder="e.g. 07451110021"><br>
+
+                <label for="new_email">email</label><br>
+                <input type="email" name="new_email" id="new_email" placeholder="e.g. myemail@mail.com"><br>
+
+                <button type="submit">CONFIRM</button>
+            </form>
+
+            <button type="button" onclick="document.getElementById('change-details-modal').style.display='none'">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+    <footer></footer>
+</body>
+</html>

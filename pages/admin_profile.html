@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+</head>
+<body>
+    <nav>
+        <a href="admin_dashboard.html">dashboard</a>
+        <a href="admin_citations.html">citations</a>
+        <a href="admin_profile.html">profile</a>
+    </nav>
+
+    <div>
+        <h1>ADMIN PROFILE</h1>
+
+        <div>
+            <p>username</p>
+            <input type="text" value="officer.smith" readonly><br>
+
+            <p>badge number</p>
+            <input type="text" value="NYPD00123" readonly><br>
+
+            <p>first name</p>
+            <input type="text" value="john" readonly><br>
+
+            <p>last name</p>
+            <input type="text" value="smith" readonly><br>
+
+            <p>rank</p>
+            <input type="text" value="sergeant" readonly><br>
+
+            <p>precinct</p>
+            <input type="text" value="queens north" readonly><br>
+
+            <p>phone</p>
+            <input type="text" value="07411001102" readonly><br>
+
+            <p>email</p>
+            <input type="text" value="j.smith@nypd.gov" readonly><br>
+        </div>
+
+        <button type="button" onclick="document.getElementById('change-details-modal').style.display='block'">
+            CHANGE DETAILS
+        </button>
+    </div>
+
+
+    <!-- Change Contact Details Modal -->
+    <div id="change-details-modal" style="display:none;">
+        <div>
+            <h2>CHANGE CONTACT DETAILS FORM</h2>
+
+            <form>
+                <label for="new_phone">phone number</label><br>
+                <input type="tel" name="new_phone" id="new_phone" placeholder="e.g. 07451110021"><br>
+
+                <label for="new_email">email</label><br>
+                <input type="email" name="new_email" id="new_email" placeholder="e.g. myemail@nypd.gov"><br>
+
+                <button type="submit">CONFIRM</button>
+            </form>
+
+            <button type="button" onclick="document.getElementById('change-details-modal').style.display='none'">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citation Management</title>
+</head>
+<body>
+    <nav>
+        <a href="admin_dashboard.html">dashboard</a>
+        <a href="admin_citations.html">citations</a>
+        <a href="admin_profile.html">profile</a>
+    </nav>
+
+    <div>
+        <h1>CITATION MANAGEMENT</h1>
+
+        <button type="button" onclick="document.getElementById('create-citation-modal').style.display='block'">
+            + NEW CITATION
+        </button>
+
+        <h2>ALL CITATIONS</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>notice id</th>
+                    <th>driver</th>
+                    <th>car</th>
+                    <th>address</th>
+                    <th>date &amp; time</th>
+                    <th>violation</th>
+                    <th>severity</th>
+                    <th>status</th>
+                    <th>officer</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>n001</td>
+                    <td>jack nicholson</td>
+                    <td>chevrolet sedan</td>
+                    <td>nights boulevard, queens, new york</td>
+                    <td>07/27/2025</td>
+                    <td>speeding in a 30mph zone</td>
+                    <td>low</td>
+                    <td>active</td>
+                    <td>officer.smith</td>
+                    <td>
+                        <button type="button" onclick="document.getElementById('view-citation-modal').style.display='block'">VIEW</button>
+                        <button type="button" onclick="document.getElementById('edit-citation-modal').style.display='block'">EDIT</button>
+                        <button type="button" onclick="document.getElementById('delete-citation-modal').style.display='block'">DELETE</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Create Citation Modal -->
+    <div id="create-citation-modal" style="display:none;">
+        <div>
+            <h2>CREATE NEW CITATION</h2>
+
+            <form>
+                <h3>DRIVER DETAILS</h3>
+
+                <label for="c-license">driver license number *</label><br>
+                <input type="text" name="c-license" id="c-license" placeholder="e.g. CA1234567"><br>
+
+                <h3>VEHICLE DETAILS</h3>
+
+                <label for="c-plate">license plate *</label><br>
+                <input type="text" name="c-plate" id="c-plate" placeholder="e.g. ABc123"><br>
+
+                <label for="c-vin">vin *</label><br>
+                <input type="text" name="c-vin" id="c-vin" placeholder="e.g. 1ABCD12633B004352"><br>
+
+                <h3>VIOLATION DETAILS</h3>
+
+                <label for="c-violation">violation type *</label><br>
+                <input type="text" name="c-violation" id="c-violation" placeholder="e.g. speeding"><br>
+
+                <label for="c-description">description *</label><br>
+                <textarea name="c-description" id="c-description" placeholder="e.g. speeding in a 30mph zone"></textarea><br>
+
+                <label for="c-severity">severity *</label><br>
+                <select name="c-severity" id="c-severity">
+                    <option value="">select severity</option>
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select><br>
+
+                <label for="c-date">date &amp; time *</label><br>
+                <input type="datetime-local" name="c-date" id="c-date"><br>
+
+                <h3>LOCATION DETAILS</h3>
+
+                <label for="c-street">street *</label><br>
+                <input type="text" name="c-street" id="c-street" placeholder="e.g. nights boulevard"><br>
+
+                <label for="c-city">city *</label><br>
+                <input type="text" name="c-city" id="c-city" placeholder="e.g. queens"><br>
+
+                <label for="c-state">state *</label><br>
+                <input type="text" name="c-state" id="c-state" placeholder="e.g. new york"><br>
+
+                <label for="c-zip">zip code *</label><br>
+                <input type="text" name="c-zip" id="c-zip" placeholder="e.g. 11001"><br>
+
+                <h3>OFFICER DETAILS</h3>
+
+                <label for="c-badge">badge number *</label><br>
+                <input type="text" name="c-badge" id="c-badge" placeholder="e.g. NYPD00123"><br>
+
+                <button type="submit">CREATE CITATION</button>
+            </form>
+
+            <button type="button" onclick="document.getElementById('create-citation-modal').style.display='none'">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+
+    <!-- View Citation Modal -->
+    <div id="view-citation-modal" style="display:none;">
+        <div>
+            <h2>CITATION DETAILS</h2>
+
+            <p>notice id</p>
+            <input type="text" value="n001" readonly><br>
+
+            <p>driver</p>
+            <input type="text" value="jack nicholson" readonly><br>
+
+            <p>license number</p>
+            <input type="text" value="ca1234567" readonly><br>
+
+            <p>car</p>
+            <input type="text" value="chevrolet sedan" readonly><br>
+
+            <p>vin</p>
+            <input type="text" value="1ABCD12633B004352" readonly><br>
+
+            <p>license plate</p>
+            <input type="text" value="abc123" readonly><br>
+
+            <p>violation</p>
+            <input type="text" value="speeding in a 30mph zone" readonly><br>
+
+            <p>severity</p>
+            <input type="text" value="low" readonly><br>
+
+            <p>status</p>
+            <input type="text" value="active" readonly><br>
+
+            <p>date &amp; time</p>
+            <input type="text" value="07/27/2025" readonly><br>
+
+            <p>address</p>
+            <input type="text" value="nights boulevard, queens, new york" readonly><br>
+
+            <p>officer</p>
+            <input type="text" value="officer.smith" readonly><br>
+
+            <p>entry date</p>
+            <input type="text" value="07/27/2025" readonly><br>
+
+            <p>expiry date</p>
+            <input type="text" value="02/27/2028" readonly><br>
+
+            <button type="button" onclick="document.getElementById('view-citation-modal').style.display='none'">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Edit Citation Modal -->
+    <div id="edit-citation-modal" style="display:none;">
+        <div>
+            <h2>EDIT CITATION</h2>
+
+            <form>
+                <label for="e-violation">violation type *</label><br>
+                <input type="text" name="e-violation" id="e-violation" placeholder="e.g. speeding"><br>
+
+                <label for="e-description">description *</label><br>
+                <textarea name="e-description" id="e-description" placeholder="e.g. speeding in a 30mph zone"></textarea><br>
+
+                <label for="e-severity">severity *</label><br>
+                <select name="e-severity" id="e-severity">
+                    <option value="">select severity</option>
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select><br>
+
+                <label for="e-status">status *</label><br>
+                <select name="e-status" id="e-status">
+                    <option value="">select status</option>
+                    <option value="active">active</option>
+                    <option value="resolved">resolved</option>
+                    <option value="appealed">appealed</option>
+                    <option value="expired">expired</option>
+                </select><br>
+
+                <label for="e-street">street *</label><br>
+                <input type="text" name="e-street" id="e-street" placeholder="e.g. nights boulevard"><br>
+
+                <label for="e-city">city *</label><br>
+                <input type="text" name="e-city" id="e-city" placeholder="e.g. queens"><br>
+
+                <label for="e-state">state *</label><br>
+                <input type="text" name="e-state" id="e-state" placeholder="e.g. new york"><br>
+
+                <label for="e-zip">zip code *</label><br>
+                <input type="text" name="e-zip" id="e-zip" placeholder="e.g. 11001"><br>
+
+                <label for="e-expiry">expiry date *</label><br>
+                <input type="date" name="e-expiry" id="e-expiry"><br>
+
+                <button type="submit">SAVE CHANGES</button>
+            </form>
+
+            <button type="button" onclick="document.getElementById('edit-citation-modal').style.display='none'">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-citation-modal" style="display:none;">
+        <div>
+            <h2>DELETE CITATION</h2>
+
+            <p>are you sure you want to delete citation <strong>n001</strong>? this action cannot be undone.</p>
+
+            <button type="button">CONFIRM DELETE</button>
+            <button type="button" onclick="document.getElementById('delete-citation-modal').style.display='none'">
+                CANCEL
+            </button>
+        </div>
+    </div>
+
+
+    <footer></footer>
+</body>
+</html>
