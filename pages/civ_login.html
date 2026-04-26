@@ -14,21 +14,19 @@
     <div>
         <h1>CIVILIAN LOGIN</h1>
 
-        <form>
+        <form id="civilian-login-form">
             <label for="uname">username *</label><br>
-            <input type="text" name="uname" id="uname" placeholder="e.g. Jacknicks"><br>
+            <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required><br>
 
             <label for="dob">dob *</label><br>
             <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22"><br>
 
             <label for="password">password *</label><br>
-            <input type="password" name="password" id="password" placeholder="input here"><br>
+            <input type="password" name="password" id="password" placeholder="input here" required><br>
 
-            <button type="submit">
-                <a href="civ_dashboard.html">
-                    LOG IN
-                </a>
-            </button>
+            <p id="auth-message" role="status" aria-live="polite"></p>
+
+            <button type="submit">LOG IN</button>
         </form>
     </div>
 
@@ -39,5 +37,6 @@
     </div>
 
     <footer></footer>
+    <script src="../assets/scripts/civilian_auth.js"></script>
 </body>
 </html>

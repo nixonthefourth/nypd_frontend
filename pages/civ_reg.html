@@ -14,41 +14,41 @@
     <div>
         <h1>CIVILIAN REGISTRATION</h1>
 
-        <form>
+        <form id="civilian-register-form">
             <h2>PERSONAL DETAILS</h2>
 
             <label for="uname">username *</label><br>
-            <input type="text" name="uname" id="uname" placeholder="e.g. Jacknicks"><br>
+            <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required><br>
 
             <label for="fname">first name *</label><br>
-            <input type="text" name="fname" id="fname" placeholder="e.g. Jack"><br>
+            <input type="text" name="first_name" id="fname" placeholder="e.g. Jack" required><br>
 
             <label for="lname">last name *</label><br>
-            <input type="text" name="lname" id="lname" placeholder="e.g. nicholson"><br>
+            <input type="text" name="last_name" id="lname" placeholder="e.g. nicholson" required><br>
 
             <label for="dob">dob *</label><br>
-            <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22"><br>
+            <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22" required><br>
 
             <label for="height">height (in) *</label><br>
-            <input type="number" name="height" id="height" placeholder="e.g. 72"><br>
+            <input type="number" name="height_inches" id="height" placeholder="e.g. 72" min="36" max="96" required><br>
 
             <label for="weight">weight (lbs) *</label><br>
-            <input type="number" name="weight" id="weight" placeholder="e.g. 153"><br>
+            <input type="number" name="weight_pounds" id="weight" placeholder="e.g. 153" min="50" max="500" required><br>
 
             <label for="eye_color">eye color *</label><br>
-            <input type="text" name="eye_color" id="eye_color" placeholder="e.g. green"><br>
+            <input type="text" name="eyes_colour" id="eye_color" placeholder="e.g. green" required><br>
 
             <label for="license_number">license number *</label><br>
-            <input type="text" name="license_number" id="license_number" placeholder="e.g. CA1234567"><br>
+            <input type="text" name="licence_number" id="license_number" placeholder="e.g. CA1234567" required><br>
 
             <label for="state_of_issue">state of issue *</label><br>
-            <input type="text" name="state_of_issue" id="state_of_issue" placeholder="e.g. california"><br>
+            <input type="text" name="state_issue" id="state_of_issue" placeholder="e.g. california" required><br>
 
             <label for="password">password *</label><br>
-            <input type="password" name="password" id="password" placeholder="input here"><br>
+            <input type="password" name="password" id="password" placeholder="input here" required><br>
 
             <label for="confirm_password">confirm password *</label><br>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm"><br>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm" required><br>
 
 
             <h2>VEHICLE REG DETAILS</h2>
@@ -81,34 +81,33 @@
             <h2>CONTACT DETAILS</h2>
 
             <label for="phone">phone number *</label><br>
-            <input type="tel" name="phone" id="phone" placeholder="e.g. 07412345178"><br>
+            <input type="tel" name="phone_number" id="phone" placeholder="e.g. 07412345178" required><br>
 
             <label for="email">email</label><br>
-            <input type="email" name="email" id="email" placeholder="e.g. myemail@mail.com"><br>
+            <input type="email" name="email" id="email" placeholder="e.g. myemail@mail.com" required><br>
 
             <label for="con_zip">zip code *</label><br>
-            <input type="text" name="con_zip" id="con_zip" placeholder="e.g. 12345"><br>
+            <input type="text" name="zip_code" id="con_zip" placeholder="e.g. 12345" required><br>
 
             <label for="con_street">street *</label><br>
-            <input type="text" name="con_street" id="con_street" placeholder="e.g. nixon drive"><br>
+            <input type="text" name="street" id="con_street" placeholder="e.g. nixon drive" required><br>
 
             <label for="con_house">house *</label><br>
-            <input type="text" name="con_house" id="con_house" placeholder="e.g. 1A"><br>
+            <input type="text" name="house" id="con_house" placeholder="e.g. 1A" required><br>
 
             <label for="con_state">state *</label><br>
-            <input type="text" name="con_state" id="con_state" placeholder="e.g. indiana"><br>
+            <input type="text" name="state" id="con_state" placeholder="e.g. indiana" required><br>
 
             <label for="con_city">city *</label><br>
-            <input type="text" name="con_city" id="con_city" placeholder="e.g. hawkins"><br>
+            <input type="text" name="city" id="con_city" placeholder="e.g. hawkins" required><br>
 
-            <button type="submit">
-                <a href="civ_dashboard.html">
-                    REGISTER
-                </a>
-            </button>
+            <p id="auth-message" role="status" aria-live="polite"></p>
+
+            <button type="submit">REGISTER</button>
         </form>
     </div>
 
     <footer></footer>
+    <script src="../assets/scripts/civilian_auth.js"></script>
 </body>
 </html>
