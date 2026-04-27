@@ -15,9 +15,11 @@
     <div>
         <h1>CITATION MANAGEMENT</h1>
 
-        <button type="button" onclick="document.getElementById('create-citation-modal').style.display='block'">
+        <button type="button" id="open-create-citation-modal">
             + NEW CITATION
         </button>
+
+        <p id="citation-message" role="status" aria-live="polite"></p>
 
         <h2>ALL CITATIONS</h2>
 
@@ -36,219 +38,220 @@
                     <th>actions</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>n001</td>
-                    <td>jack nicholson</td>
-                    <td>chevrolet sedan</td>
-                    <td>nights boulevard, queens, new york</td>
-                    <td>07/27/2025</td>
-                    <td>speeding in a 30mph zone</td>
-                    <td>low</td>
-                    <td>active</td>
-                    <td>officer.smith</td>
-                    <td>
-                        <button type="button" onclick="document.getElementById('view-citation-modal').style.display='block'">VIEW</button>
-                        <button type="button" onclick="document.getElementById('edit-citation-modal').style.display='block'">EDIT</button>
-                        <button type="button" onclick="document.getElementById('delete-citation-modal').style.display='block'">DELETE</button>
-                    </td>
-                </tr>
+            <tbody id="citations-table-body">
             </tbody>
         </table>
     </div>
 
-
-    <!-- Create Citation Modal -->
-    <div id="create-citation-modal" style="display:none;">
+    <div id="create-citation-modal" role="dialog" aria-modal="true" aria-labelledby="create-citation-title" hidden>
         <div>
-            <h2>CREATE NEW CITATION</h2>
+            <h2 id="create-citation-title">CREATE NEW CITATION</h2>
 
-            <form>
-                <h3>DRIVER DETAILS</h3>
+            <form id="create-citation-form">
+                <h3>NOTICE DETAILS</h3>
 
-                <label for="c-license">driver license number *</label><br>
-                <input type="text" name="c-license" id="c-license" placeholder="e.g. CA1234567"><br>
+                <label for="c-notice-id">notice id *</label><br>
+                <input type="text" name="notice_id" id="c-notice-id" placeholder="e.g. N006" required><br>
 
-                <h3>VEHICLE DETAILS</h3>
-
-                <label for="c-plate">license plate *</label><br>
-                <input type="text" name="c-plate" id="c-plate" placeholder="e.g. ABc123"><br>
-
-                <label for="c-vin">vin *</label><br>
-                <input type="text" name="c-vin" id="c-vin" placeholder="e.g. 1ABCD12633B004352"><br>
-
-                <h3>VIOLATION DETAILS</h3>
-
-                <label for="c-violation">violation type *</label><br>
-                <input type="text" name="c-violation" id="c-violation" placeholder="e.g. speeding"><br>
-
-                <label for="c-description">description *</label><br>
-                <textarea name="c-description" id="c-description" placeholder="e.g. speeding in a 30mph zone"></textarea><br>
-
-                <label for="c-severity">severity *</label><br>
-                <select name="c-severity" id="c-severity">
-                    <option value="">select severity</option>
-                    <option value="low">low</option>
-                    <option value="medium">medium</option>
-                    <option value="high">high</option>
-                </select><br>
+                <label for="c-car-id">car id *</label><br>
+                <input type="number" name="car_id" id="c-car-id" placeholder="e.g. 1" required><br>
 
                 <label for="c-date">date &amp; time *</label><br>
-                <input type="datetime-local" name="c-date" id="c-date"><br>
+                <input type="datetime-local" name="violation_date_time" id="c-date" required><br>
+
+                <label for="c-detachment">detachment *</label><br>
+                <input type="text" name="detachment" id="c-detachment" placeholder="e.g. NYD-12" required><br>
+
+                <label for="c-severity">severity *</label><br>
+                <select name="violation_severity" id="c-severity" required>
+                    <option value="">select severity</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select><br>
+
+                <label for="c-status">status *</label><br>
+                <select name="notice_status" id="c-status" required>
+                    <option value="">select status</option>
+                    <option value="Active">Active</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Expired">Expired</option>
+                </select><br>
+
+                <label for="c-notification-sent">notification sent</label>
+                <input type="checkbox" name="notification_sent" id="c-notification-sent"><br>
+
+                <label for="c-entry-date">entry date *</label><br>
+                <input type="date" name="entry_date" id="c-entry-date" required><br>
+
+                <label for="c-expiry-date">expiry date *</label><br>
+                <input type="date" name="expiry_date" id="c-expiry-date" required><br>
+
+                <label for="c-description">description *</label><br>
+                <textarea name="violation_description" id="c-description" placeholder="e.g. Speeding in a 30mph zone" required></textarea><br>
 
                 <h3>LOCATION DETAILS</h3>
 
                 <label for="c-street">street *</label><br>
-                <input type="text" name="c-street" id="c-street" placeholder="e.g. nights boulevard"><br>
+                <input type="text" name="street" id="c-street" placeholder="e.g. First Avenue" required><br>
 
                 <label for="c-city">city *</label><br>
-                <input type="text" name="c-city" id="c-city" placeholder="e.g. queens"><br>
+                <input type="text" name="city" id="c-city" placeholder="e.g. New York" required><br>
 
                 <label for="c-state">state *</label><br>
-                <input type="text" name="c-state" id="c-state" placeholder="e.g. new york"><br>
+                <input type="text" name="state" id="c-state" placeholder="e.g. New York" required><br>
+
+                <label for="c-district">district *</label><br>
+                <input type="text" name="district" id="c-district" placeholder="e.g. Brooklyn" required><br>
 
                 <label for="c-zip">zip code *</label><br>
-                <input type="text" name="c-zip" id="c-zip" placeholder="e.g. 11001"><br>
-
-                <h3>OFFICER DETAILS</h3>
-
-                <label for="c-badge">badge number *</label><br>
-                <input type="text" name="c-badge" id="c-badge" placeholder="e.g. NYPD00123"><br>
+                <input type="text" name="zip_code" id="c-zip" placeholder="e.g. 11201" required><br>
 
                 <button type="submit">CREATE CITATION</button>
             </form>
 
-            <button type="button" onclick="document.getElementById('create-citation-modal').style.display='none'">
+            <button type="button" id="close-create-citation-modal">
                 CLOSE
             </button>
         </div>
     </div>
 
-
-    <!-- View Citation Modal -->
-    <div id="view-citation-modal" style="display:none;">
+    <div id="view-citation-modal" role="dialog" aria-modal="true" aria-labelledby="view-citation-title" hidden>
         <div>
-            <h2>CITATION DETAILS</h2>
+            <h2 id="view-citation-title">CITATION DETAILS</h2>
 
             <p>notice id</p>
-            <input type="text" value="n001" readonly><br>
+            <input type="text" id="v-notice-id" readonly><br>
 
             <p>driver</p>
-            <input type="text" value="jack nicholson" readonly><br>
+            <input type="text" id="v-driver" readonly><br>
 
             <p>license number</p>
-            <input type="text" value="ca1234567" readonly><br>
+            <input type="text" id="v-licence-number" readonly><br>
 
             <p>car</p>
-            <input type="text" value="chevrolet sedan" readonly><br>
+            <input type="text" id="v-car" readonly><br>
 
             <p>vin</p>
-            <input type="text" value="1ABCD12633B004352" readonly><br>
+            <input type="text" id="v-vin" readonly><br>
 
             <p>license plate</p>
-            <input type="text" value="abc123" readonly><br>
+            <input type="text" id="v-licence-plate" readonly><br>
 
             <p>violation</p>
-            <input type="text" value="speeding in a 30mph zone" readonly><br>
+            <input type="text" id="v-description" readonly><br>
 
             <p>severity</p>
-            <input type="text" value="low" readonly><br>
+            <input type="text" id="v-severity" readonly><br>
 
             <p>status</p>
-            <input type="text" value="active" readonly><br>
+            <input type="text" id="v-status" readonly><br>
 
             <p>date &amp; time</p>
-            <input type="text" value="07/27/2025" readonly><br>
+            <input type="text" id="v-date" readonly><br>
 
             <p>address</p>
-            <input type="text" value="nights boulevard, queens, new york" readonly><br>
+            <input type="text" id="v-address" readonly><br>
+
+            <p>district</p>
+            <input type="text" id="v-district" readonly><br>
 
             <p>officer</p>
-            <input type="text" value="officer.smith" readonly><br>
+            <input type="text" id="v-officer" readonly><br>
 
             <p>entry date</p>
-            <input type="text" value="07/27/2025" readonly><br>
+            <input type="text" id="v-entry-date" readonly><br>
 
             <p>expiry date</p>
-            <input type="text" value="02/27/2028" readonly><br>
+            <input type="text" id="v-expiry-date" readonly><br>
 
-            <button type="button" onclick="document.getElementById('view-citation-modal').style.display='none'">
+            <button type="button" id="close-view-citation-modal">
                 CLOSE
             </button>
         </div>
     </div>
 
-
-    <!-- Edit Citation Modal -->
-    <div id="edit-citation-modal" style="display:none;">
+    <div id="edit-citation-modal" role="dialog" aria-modal="true" aria-labelledby="edit-citation-title" hidden>
         <div>
-            <h2>EDIT CITATION</h2>
+            <h2 id="edit-citation-title">EDIT CITATION</h2>
 
-            <form>
-                <label for="e-violation">violation type *</label><br>
-                <input type="text" name="e-violation" id="e-violation" placeholder="e.g. speeding"><br>
+            <form id="edit-citation-form">
+                <input type="hidden" name="notice_id" id="e-notice-id">
 
-                <label for="e-description">description *</label><br>
-                <textarea name="e-description" id="e-description" placeholder="e.g. speeding in a 30mph zone"></textarea><br>
+                <label for="e-car-id">car id *</label><br>
+                <input type="number" name="car_id" id="e-car-id" required><br>
+
+                <label for="e-date">date &amp; time *</label><br>
+                <input type="datetime-local" name="violation_date_time" id="e-date" required><br>
+
+                <label for="e-detachment">detachment *</label><br>
+                <input type="text" name="detachment" id="e-detachment" required><br>
 
                 <label for="e-severity">severity *</label><br>
-                <select name="e-severity" id="e-severity">
-                    <option value="">select severity</option>
-                    <option value="low">low</option>
-                    <option value="medium">medium</option>
-                    <option value="high">high</option>
+                <select name="violation_severity" id="e-severity" required>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
                 </select><br>
 
                 <label for="e-status">status *</label><br>
-                <select name="e-status" id="e-status">
-                    <option value="">select status</option>
-                    <option value="active">active</option>
-                    <option value="resolved">resolved</option>
-                    <option value="appealed">appealed</option>
-                    <option value="expired">expired</option>
+                <select name="notice_status" id="e-status" required>
+                    <option value="Active">Active</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Expired">Expired</option>
                 </select><br>
 
+                <label for="e-notification-sent">notification sent</label>
+                <input type="checkbox" name="notification_sent" id="e-notification-sent"><br>
+
+                <label for="e-entry-date">entry date *</label><br>
+                <input type="date" name="entry_date" id="e-entry-date" required><br>
+
+                <label for="e-expiry-date">expiry date *</label><br>
+                <input type="date" name="expiry_date" id="e-expiry-date" required><br>
+
+                <label for="e-description">description *</label><br>
+                <textarea name="violation_description" id="e-description" required></textarea><br>
+
                 <label for="e-street">street *</label><br>
-                <input type="text" name="e-street" id="e-street" placeholder="e.g. nights boulevard"><br>
+                <input type="text" name="street" id="e-street" required><br>
 
                 <label for="e-city">city *</label><br>
-                <input type="text" name="e-city" id="e-city" placeholder="e.g. queens"><br>
+                <input type="text" name="city" id="e-city" required><br>
 
                 <label for="e-state">state *</label><br>
-                <input type="text" name="e-state" id="e-state" placeholder="e.g. new york"><br>
+                <input type="text" name="state" id="e-state" required><br>
+
+                <label for="e-district">district *</label><br>
+                <input type="text" name="district" id="e-district" required><br>
 
                 <label for="e-zip">zip code *</label><br>
-                <input type="text" name="e-zip" id="e-zip" placeholder="e.g. 11001"><br>
-
-                <label for="e-expiry">expiry date *</label><br>
-                <input type="date" name="e-expiry" id="e-expiry"><br>
+                <input type="text" name="zip_code" id="e-zip" required><br>
 
                 <button type="submit">SAVE CHANGES</button>
             </form>
 
-            <button type="button" onclick="document.getElementById('edit-citation-modal').style.display='none'">
+            <button type="button" id="close-edit-citation-modal">
                 CLOSE
             </button>
         </div>
     </div>
 
-
-    <!-- Delete Confirmation Modal -->
-    <div id="delete-citation-modal" style="display:none;">
+    <div id="delete-citation-modal" role="dialog" aria-modal="true" aria-labelledby="delete-citation-title" hidden>
         <div>
-            <h2>DELETE CITATION</h2>
+            <h2 id="delete-citation-title">DELETE CITATION</h2>
 
-            <p>are you sure you want to delete citation <strong>n001</strong>? this action cannot be undone.</p>
+            <p>are you sure you want to delete citation <strong id="delete-notice-id"></strong>? this action cannot be undone.</p>
 
-            <button type="button">CONFIRM DELETE</button>
-            <button type="button" onclick="document.getElementById('delete-citation-modal').style.display='none'">
+            <button type="button" id="confirm-delete-citation">CONFIRM DELETE</button>
+            <button type="button" id="close-delete-citation-modal">
                 CANCEL
             </button>
         </div>
     </div>
 
-
     <footer></footer>
     <script src="../assets/scripts/admin_auth.js"></script>
+    <script src="../assets/scripts/admin_citations.js"></script>
 </body>
 </html>
