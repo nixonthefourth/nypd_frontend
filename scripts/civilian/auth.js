@@ -53,7 +53,7 @@ if (loginForm) {
             });
 
             saveCivilianSession(payload);
-            window.location.href = "civ_dashboard.html";
+            window.location.href = "dashboard.html";
         } catch (error) {
             showMessage(error.message, true);
         }
@@ -96,7 +96,7 @@ if (registerForm) {
 
         try {
             await postJson("/token/civilian/register", payload);
-            window.location.href = "civ_login.html";
+            window.location.href = "login.html";
         } catch (error) {
             showMessage(error.message, true);
         }

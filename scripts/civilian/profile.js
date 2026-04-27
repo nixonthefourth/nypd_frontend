@@ -31,7 +31,7 @@ function requireCivilianToken() {
     const token = getCivilianToken();
 
     if (!token) {
-        window.location.href = "civ_login.html";
+        window.location.href = "login.html";
         return null;
     }
 

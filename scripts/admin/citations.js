@@ -89,7 +89,7 @@ async function requestJson(path, options = {}) {
     const token = getAdminToken();
 
     if (!token) {
-        window.location.href = "admin_login.html";
+        window.location.href = "login.html";
         return null;
     }
 

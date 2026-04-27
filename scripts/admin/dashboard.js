@@ -140,7 +140,7 @@ async function loadDashboardStats() {
     const session = getDashboardAdminSession();
 
     if (!session || !session.accessToken) {
-        window.location.href = "admin_login.html";
+        window.location.href = "login.html";
         return;
     }
 

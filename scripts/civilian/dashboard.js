@@ -69,7 +69,7 @@ async function loadCivilianNotices() {
     const driverId = localStorage.getItem("civilian_driver_id");
 
     if (!token || !driverId) {
-        window.location.href = "civ_login.html";
+        window.location.href = "login.html";
         return;
     }
 

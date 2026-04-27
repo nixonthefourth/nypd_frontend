@@ -48,7 +48,7 @@ function requireAdminSession() {
     const session = getAdminSession();
 
     if (!session || !session.accessToken || session.role !== "admin") {
-        window.location.href = "admin_login.html";
+        window.location.href = "login.html";
         return null;
     }
 
@@ -94,7 +94,7 @@ if (adminLoginForm) {
         try {
             const payload = await postAdminJson("/token/admin/login", data);
             saveAdminSession(payload);
-            window.location.href = "admin_dashboard.html";
+            window.location.href = "dashboard.html";
         } catch (error) {
             showAdminMessage(error.message, true);
         }
