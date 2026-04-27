@@ -16,49 +16,52 @@
 
         <div>
             <p>first name</p>
-            <input type="text" value="jack" readonly><br>
+            <input type="text" id="civilian-first-name" readonly><br>
 
             <p>last name</p>
-            <input type="text" value="nicholson" readonly><br>
+            <input type="text" id="civilian-last-name" readonly><br>
 
             <p>license number</p>
-            <input type="text" value="ca1234567" readonly><br>
+            <input type="text" id="civilian-licence-number" readonly><br>
 
             <p>issue state</p>
-            <input type="text" value="california" readonly><br>
+            <input type="text" id="civilian-state-issue" readonly><br>
 
             <p>phone</p>
-            <input type="text" value="07411001102" readonly><br>
+            <input type="text" id="civilian-phone-number" readonly><br>
 
             <p>email</p>
-            <input type="text" value="jacksemail@mymail.com" readonly><br>
+            <input type="text" id="civilian-email" readonly><br>
         </div>
 
-        <button type="button" onclick="document.getElementById('change-details-modal').style.display='block'">
+        <p id="profile-message" role="status" aria-live="polite"></p>
+
+        <button type="button" id="open-contact-modal">
             CHANGE DETAILS
         </button>
     </div>
 
-    <div id="change-details-modal" style="display:none;">
+    <div id="change-details-modal" role="dialog" aria-modal="true" aria-labelledby="change-details-title" hidden>
         <div>
-            <h2>CHANGE CONTACT DETAILS FORM</h2>
+            <h2 id="change-details-title">CHANGE CONTACT DETAILS FORM</h2>
 
-            <form>
+            <form id="civilian-contact-form">
                 <label for="new_phone">phone number</label><br>
-                <input type="tel" name="new_phone" id="new_phone" placeholder="e.g. 07451110021"><br>
+                <input type="tel" name="phone_number" id="new_phone" placeholder="e.g. 07451110021" required><br>
 
                 <label for="new_email">email</label><br>
-                <input type="email" name="new_email" id="new_email" placeholder="e.g. myemail@mail.com"><br>
+                <input type="email" name="email" id="new_email" placeholder="e.g. myemail@mail.com" required><br>
 
                 <button type="submit">CONFIRM</button>
             </form>
 
-            <button type="button" onclick="document.getElementById('change-details-modal').style.display='none'">
+            <button type="button" id="close-contact-modal">
                 CLOSE
             </button>
         </div>
     </div>
 
     <footer></footer>
+    <script src="../assets/scripts/civilian_profile.js"></script>
 </body>
 </html>

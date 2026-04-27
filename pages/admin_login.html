@@ -14,24 +14,23 @@
     <div>
         <h1>ADMIN LOGIN</h1>
 
-        <form>
+        <form id="admin-login-form">
             <label for="uname">username *</label><br>
-            <input type="text" name="uname" id="uname" placeholder="e.g. officer.smith"><br>
+            <input type="text" name="username" id="uname" placeholder="e.g. officer_user" required><br>
 
             <label for="badge">badge number *</label><br>
-            <input type="text" name="badge" id="badge" placeholder="e.g. NYPD00123"><br>
+            <input type="text" name="badge_number" id="badge" placeholder="e.g. B001" required><br>
 
             <label for="password">password *</label><br>
-            <input type="password" name="password" id="password" placeholder="input here"><br>
+            <input type="password" name="password" id="password" placeholder="input here" required><br>
 
-            <button type="submit">
-                <a href="admin_dashboard.html">
-                    LOG IN
-                </a>
-            </button>
+            <p id="admin-auth-message" role="status" aria-live="polite"></p>
+
+            <button type="submit">LOG IN</button>
         </form>
     </div>
 
     <footer></footer>
+    <script src="../assets/scripts/admin_auth.js"></script>
 </body>
 </html>

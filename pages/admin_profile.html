@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Profile</title>
 </head>
-<body>
+<body data-admin-protected="true">
     <nav>
         <a href="admin_dashboard.html">dashboard</a>
         <a href="admin_citations.html">citations</a>
@@ -17,16 +17,16 @@
 
         <div>
             <p>username</p>
-            <input type="text" value="officer.smith" readonly><br>
+            <input type="text" id="admin-profile-username" readonly><br>
 
             <p>badge number</p>
-            <input type="text" value="NYPD00123" readonly><br>
+            <input type="text" id="admin-profile-badge" readonly><br>
 
             <p>first name</p>
-            <input type="text" value="john" readonly><br>
+            <input type="text" id="admin-profile-first-name" readonly><br>
 
             <p>last name</p>
-            <input type="text" value="smith" readonly><br>
+            <input type="text" id="admin-profile-last-name" readonly><br>
 
             <p>rank</p>
             <input type="text" value="sergeant" readonly><br>
@@ -70,5 +70,6 @@
 
 
     <footer></footer>
+    <script src="../assets/scripts/admin_auth.js"></script>
 </body>
 </html>

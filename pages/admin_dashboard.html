@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
 </head>
-<body>
+<body data-admin-protected="true">
     <nav>
         <a href="admin_dashboard.html">dashboard</a>
         <a href="admin_citations.html">citations</a>
@@ -37,7 +37,31 @@
                 <p>total drivers</p>
                 <p id="stat-drivers">—</p>
             </div>
+
+            <div>
+                <p>my notices this month</p>
+                <p id="stat-officer-month">—</p>
+            </div>
         </div>
+
+        <h2>FILTERS</h2>
+
+        <form id="dashboard-filter-form">
+            <label for="district-filter">district</label><br>
+            <select name="district" id="district-filter">
+                <option value="">all districts</option>
+            </select><br>
+
+            <label for="date-sort">sort by date</label><br>
+            <select name="sort_order" id="date-sort">
+                <option value="desc">newest first</option>
+                <option value="asc">oldest first</option>
+            </select><br>
+
+            <button type="submit">APPLY FILTERS</button>
+        </form>
+
+        <p id="dashboard-stats-message" role="status" aria-live="polite"></p>
 
         <h2>CITATIONS BY VIOLATION TYPE</h2>
 
@@ -49,18 +73,6 @@
                 </tr>
             </thead>
             <tbody id="violations-table-body">
-                <tr>
-                    <td>speeding</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>red light</td>
-                    <td>—</td>
-                </tr>
-                <tr>
-                    <td>illegal parking</td>
-                    <td>—</td>
-                </tr>
             </tbody>
         </table>
 
@@ -74,22 +86,43 @@
                 </tr>
             </thead>
             <tbody id="districts-table-body">
+            </tbody>
+        </table>
+
+        <h2>NOTICES BY MY DETACHMENT</h2>
+
+        <table>
+            <thead>
                 <tr>
-                    <td>queens</td>
-                    <td>—</td>
+                    <th>detachment</th>
+                    <th>count</th>
                 </tr>
+            </thead>
+            <tbody id="detachments-table-body">
+            </tbody>
+        </table>
+
+        <h2>FILTERED NOTICES</h2>
+
+        <table>
+            <thead>
                 <tr>
-                    <td>brooklyn</td>
-                    <td>—</td>
+                    <th>notice id</th>
+                    <th>date &amp; time</th>
+                    <th>detachment</th>
+                    <th>district</th>
+                    <th>severity</th>
+                    <th>status</th>
+                    <th>description</th>
                 </tr>
-                <tr>
-                    <td>manhattan</td>
-                    <td>—</td>
-                </tr>
+            </thead>
+            <tbody id="dashboard-notices-body">
             </tbody>
         </table>
     </div>
 
     <footer></footer>
+    <script src="../assets/scripts/admin_auth.js"></script>
+    <script src="../assets/scripts/admin_dashboard.js"></script>
 </body>
 </html>
