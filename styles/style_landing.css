@@ -1,0 +1,361 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --page: #fbfbfb;
+  --ink: #0b0b0d;
+  --accent: #6870d8;
+  --max-width: 1540px;
+  --side-gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.15;
+}
+
+nav {
+  width: min(var(--max-width), calc(100% - (var(--side-gap) * 2)));
+  margin: 0 auto;
+  padding: 1.35rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+}
+
+nav a {
+  color: var(--ink);
+  font-size: clamp(1rem, 1.25vw, 1.45rem);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+nav a:first-child {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  color: var(--accent);
+}
+
+body > div {
+  width: min(var(--max-width), calc(100% - (var(--side-gap) * 2)));
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body > div:first-of-type {
+  display: grid;
+  grid-template-columns: minmax(23rem, 0.82fr) minmax(34rem, 1fr);
+  grid-template-areas:
+    "title hero"
+    "buttons hero";
+  column-gap: clamp(3.5rem, 7vw, 8.5rem);
+  align-items: start;
+  padding: clamp(6rem, 8.8vw, 8.7rem) 0 clamp(8rem, 10vw, 10.5rem);
+}
+
+h1 {
+  grid-area: title;
+  margin: 0;
+  max-width: 37rem;
+  font-size: clamp(3.25rem, 4.6vw, 5.95rem);
+  font-weight: 900;
+  line-height: 1.16;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body > div:first-of-type > img {
+  grid-area: hero;
+  aspect-ratio: 1 / 1;
+}
+
+.button-group {
+  grid-area: buttons;
+  width: min(100%, 21.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  align-self: end;
+  margin-top: clamp(5rem, 12vw, 11.8rem);
+}
+
+.button-group button {
+  min-height: 4.3rem;
+  padding: 0;
+  border: 3px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: clamp(1rem, 1.35vw, 1.45rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button-group button:first-child {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button-group button:hover,
+.button-group button:focus-within {
+  transform: translateY(-1px);
+}
+
+.button-group a {
+  width: 100%;
+  min-height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+body > div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 0.43fr 0.56fr 1fr;
+  grid-template-areas: "about copy image";
+  column-gap: clamp(2.6rem, 5.5vw, 6.9rem);
+  align-items: start;
+  padding-bottom: clamp(10rem, 13vw, 13.2rem);
+}
+
+h2 {
+  grid-area: about;
+  margin: 0;
+  max-width: 18rem;
+  font-size: clamp(1.45rem, 1.85vw, 2.25rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+p {
+  grid-area: copy;
+  margin: 0;
+  max-width: 24rem;
+  font-size: clamp(1rem, 1.22vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.08;
+  white-space: pre-line;
+}
+
+body > div:nth-of-type(2) > img {
+  grid-area: image;
+  aspect-ratio: 1 / 1.2;
+}
+
+footer {
+  width: 100%;
+  min-height: 6.3rem;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer::before {
+  content: "";
+  width: min(24rem, 38vw);
+  height: 0.55rem;
+  background: #fff;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --side-gap: clamp(1.8rem, 4.8vw, 3.5rem);
+  }
+
+  body > div:first-of-type {
+    grid-template-columns: minmax(18rem, 0.95fr) minmax(23rem, 1fr);
+    column-gap: clamp(3rem, 7vw, 5rem);
+    padding-top: clamp(5rem, 9vw, 7.6rem);
+    padding-bottom: clamp(6.2rem, 10vw, 8rem);
+  }
+
+  h1 {
+    max-width: 29rem;
+    font-size: clamp(2.9rem, 5.5vw, 4.2rem);
+  }
+
+  .button-group {
+    width: min(100%, 14.5rem);
+    gap: 1.05rem;
+    margin-top: clamp(4.7rem, 10vw, 6.5rem);
+  }
+
+  .button-group button {
+    min-height: 2.55rem;
+    border-width: 2px;
+    font-size: 1.2rem;
+  }
+
+  body > div:nth-of-type(2) {
+    grid-template-columns: 0.42fr 1fr;
+    grid-template-areas:
+      "about image"
+      "copy image";
+    column-gap: clamp(3rem, 6.3vw, 5.5rem);
+    row-gap: 5rem;
+    padding-bottom: 7.2rem;
+  }
+
+  p {
+    max-width: 15rem;
+    font-weight: 400;
+    font-size: 1.16rem;
+    line-height: 1.08;
+  }
+
+  body > div:nth-of-type(2) > img {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --side-gap: 1.25rem;
+  }
+
+  nav {
+    padding-top: 1.15rem;
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  body > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 3.3rem 0 3.8rem;
+  }
+
+  h1 {
+    max-width: 24rem;
+    font-size: clamp(2.15rem, 9vw, 3.15rem);
+    line-height: 1.16;
+  }
+
+  body > div:first-of-type > img {
+    order: 2;
+    aspect-ratio: 1.45 / 1;
+  }
+
+  .button-group {
+    order: 3;
+    width: min(100%, 13.75rem);
+    gap: 1rem;
+    margin-top: 0.05rem;
+  }
+
+  .button-group button {
+    min-height: 3rem;
+    font-size: 1rem;
+  }
+
+  body > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    padding-bottom: 4rem;
+  }
+
+  h2 {
+    max-width: 11rem;
+    font-size: 1.35rem;
+    line-height: 1.1;
+  }
+
+  p {
+    max-width: 100%;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.08;
+    margin-top: 0.2rem;
+  }
+
+  body > div:nth-of-type(2) > img {
+    margin-top: 0.6rem;
+    aspect-ratio: 1 / 1;
+  }
+
+  footer {
+    min-height: 5rem;
+  }
+
+  footer::before {
+    width: min(12.5rem, 50vw);
+    height: 0.45rem;
+  }
+}
+
+@media (max-width: 720px) and (orientation: landscape) {
+  :root {
+    --side-gap: 1.75rem;
+  }
+
+  body > div:first-of-type {
+    display: grid;
+    grid-template-columns: 1fr 1.9fr;
+    grid-template-areas:
+      "title hero"
+      "buttons hero";
+    gap: 2.2rem 5.4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4.8vw, 2.6rem);
+  }
+
+  body > div:first-of-type > img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .button-group {
+    width: 13.2rem;
+    margin-top: 4.4rem;
+  }
+
+  body > div:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: 1fr 1.9fr;
+    grid-template-areas:
+      "about image"
+      "copy image";
+    gap: 5.8rem 5.4rem;
+    padding-bottom: 4rem;
+  }
+
+  p {
+    font-size: 0.97rem;
+  }
+}
