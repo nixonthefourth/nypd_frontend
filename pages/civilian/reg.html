@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civilian Registration</title>
+    <link rel="stylesheet" href="../../styles/style_registration.css">
 </head>
 <body>
     <nav>
@@ -16,90 +17,143 @@
 
         <form id="civilian-register-form">
             <h2>PERSONAL DETAILS</h2>
+            <div class="form-section">
+                <div class="field-group">
+                    <label for="uname">username *</label>
+                    <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required>
+                </div>
 
-            <label for="uname">username *</label><br>
-            <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required><br>
+                <div class="field-group">
+                    <label for="fname">first name *</label>
+                    <input type="text" name="first_name" id="fname" placeholder="e.g. Jack" required>
+                </div>
 
-            <label for="fname">first name *</label><br>
-            <input type="text" name="first_name" id="fname" placeholder="e.g. Jack" required><br>
+                <div class="field-group">
+                    <label for="lname">last name *</label>
+                    <input type="text" name="last_name" id="lname" placeholder="e.g. nicholson" required>
+                </div>
 
-            <label for="lname">last name *</label><br>
-            <input type="text" name="last_name" id="lname" placeholder="e.g. nicholson" required><br>
+                <div class="field-group">
+                    <label for="dob">dob *</label>
+                    <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22" required>
+                </div>
 
-            <label for="dob">dob *</label><br>
-            <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22" required><br>
+                <div class="field-group">
+                    <label for="height">height (in) *</label>
+                    <input type="number" name="height_inches" id="height" placeholder="e.g. 72" min="36" max="96" required>
+                </div>
 
-            <label for="height">height (in) *</label><br>
-            <input type="number" name="height_inches" id="height" placeholder="e.g. 72" min="36" max="96" required><br>
+                <div class="field-group">
+                    <label for="weight">weight (lbs) *</label>
+                    <input type="number" name="weight_pounds" id="weight" placeholder="e.g. 153" min="50" max="500" required>
+                </div>
 
-            <label for="weight">weight (lbs) *</label><br>
-            <input type="number" name="weight_pounds" id="weight" placeholder="e.g. 153" min="50" max="500" required><br>
+                <div class="field-group">
+                    <label for="eye_color">eye color *</label>
+                    <input type="text" name="eyes_colour" id="eye_color" placeholder="e.g. green" required>
+                </div>
 
-            <label for="eye_color">eye color *</label><br>
-            <input type="text" name="eyes_colour" id="eye_color" placeholder="e.g. green" required><br>
+                <div class="field-group">
+                    <label for="license_number">license number *</label>
+                    <input type="text" name="licence_number" id="license_number" placeholder="e.g. CA1234567" required>
+                </div>
 
-            <label for="license_number">license number *</label><br>
-            <input type="text" name="licence_number" id="license_number" placeholder="e.g. CA1234567" required><br>
+                <div class="field-group">
+                    <label for="state_of_issue">state of issue *</label>
+                    <input type="text" name="state_issue" id="state_of_issue" placeholder="e.g. california" required>
+                </div>
 
-            <label for="state_of_issue">state of issue *</label><br>
-            <input type="text" name="state_issue" id="state_of_issue" placeholder="e.g. california" required><br>
+                <div class="field-group">
+                    <label for="password">password *</label>
+                    <input type="password" name="password" id="password" placeholder="input here" required>
+                </div>
 
-            <label for="password">password *</label><br>
-            <input type="password" name="password" id="password" placeholder="input here" required><br>
-
-            <label for="confirm_password">confirm password *</label><br>
-            <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm" required><br>
-
+                <div class="field-group">
+                    <label for="confirm_password">confirm password *</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm" required>
+                </div>
+            </div>
 
             <h2>VEHICLE REG DETAILS</h2>
+            <div class="form-section">
+                <div class="field-group">
+                    <label for="license_plate">license plate *</label>
+                    <input type="text" name="license_plate" id="license_plate" placeholder="e.g. ABc123">
+                </div>
 
-            <label for="license_plate">license plate *</label><br>
-            <input type="text" name="license_plate" id="license_plate" placeholder="e.g. ABc123"><br>
+                <div class="field-group">
+                    <label for="veh_state_of_issue">state of issue *</label>
+                    <input type="text" name="veh_state_of_issue" id="veh_state_of_issue" placeholder="e.g. new jersey">
+                </div>
 
-            <label for="veh_state_of_issue">state of issue *</label><br>
-            <input type="text" name="veh_state_of_issue" id="veh_state_of_issue" placeholder="e.g. new jersey"><br>
+                <div class="field-group">
+                    <label for="vin">vin *</label>
+                    <input type="text" name="vin" id="vin" placeholder="e.g. 1ABCD12633B004352">
+                </div>
 
-            <label for="vin">vin *</label><br>
-            <input type="text" name="vin" id="vin" placeholder="e.g. 1ABCD12633B004352"><br>
+                <div class="field-group">
+                    <label for="veh_zip">zip code *</label>
+                    <input type="text" name="veh_zip" id="veh_zip" placeholder="e.g. 12345">
+                </div>
 
-            <label for="veh_zip">zip code *</label><br>
-            <input type="text" name="veh_zip" id="veh_zip" placeholder="e.g. 12345"><br>
+                <div class="field-group">
+                    <label for="veh_street">street *</label>
+                    <input type="text" name="veh_street" id="veh_street" placeholder="e.g. st. marks avenue">
+                </div>
 
-            <label for="veh_street">street *</label><br>
-            <input type="text" name="veh_street" id="veh_street" placeholder="e.g. st. marks avenue"><br>
+                <div class="field-group">
+                    <label for="veh_house">house *</label>
+                    <input type="text" name="veh_house" id="veh_house" placeholder="e.g. 28">
+                </div>
 
-            <label for="veh_house">house *</label><br>
-            <input type="text" name="veh_house" id="veh_house" placeholder="e.g. 28"><br>
+                <div class="field-group">
+                    <label for="veh_state">state *</label>
+                    <input type="text" name="veh_state" id="veh_state" placeholder="e.g. new jersey">
+                </div>
 
-            <label for="veh_state">state *</label><br>
-            <input type="text" name="veh_state" id="veh_state" placeholder="e.g. new jersey"><br>
-
-            <label for="veh_city">city *</label><br>
-            <input type="text" name="veh_city" id="veh_city" placeholder="e.g. new jersey"><br>
-
+                <div class="field-group">
+                    <label for="veh_city">city *</label>
+                    <input type="text" name="veh_city" id="veh_city" placeholder="e.g. new jersey">
+                </div>
+            </div>
 
             <h2>CONTACT DETAILS</h2>
+            <div class="form-section">
+                <div class="field-group">
+                    <label for="phone">phone number *</label>
+                    <input type="tel" name="phone_number" id="phone" placeholder="e.g. 07412345178" required>
+                </div>
 
-            <label for="phone">phone number *</label><br>
-            <input type="tel" name="phone_number" id="phone" placeholder="e.g. 07412345178" required><br>
+                <div class="field-group">
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email" placeholder="e.g. myemail@mail.com" required>
+                </div>
 
-            <label for="email">email</label><br>
-            <input type="email" name="email" id="email" placeholder="e.g. myemail@mail.com" required><br>
+                <div class="field-group">
+                    <label for="con_zip">zip code *</label>
+                    <input type="text" name="zip_code" id="con_zip" placeholder="e.g. 12345" required>
+                </div>
 
-            <label for="con_zip">zip code *</label><br>
-            <input type="text" name="zip_code" id="con_zip" placeholder="e.g. 12345" required><br>
+                <div class="field-group">
+                    <label for="con_street">street *</label>
+                    <input type="text" name="street" id="con_street" placeholder="e.g. nixon drive" required>
+                </div>
 
-            <label for="con_street">street *</label><br>
-            <input type="text" name="street" id="con_street" placeholder="e.g. nixon drive" required><br>
+                <div class="field-group">
+                    <label for="con_house">house *</label>
+                    <input type="text" name="house" id="con_house" placeholder="e.g. 1A" required>
+                </div>
 
-            <label for="con_house">house *</label><br>
-            <input type="text" name="house" id="con_house" placeholder="e.g. 1A" required><br>
+                <div class="field-group">
+                    <label for="con_state">state *</label>
+                    <input type="text" name="state" id="con_state" placeholder="e.g. indiana" required>
+                </div>
 
-            <label for="con_state">state *</label><br>
-            <input type="text" name="state" id="con_state" placeholder="e.g. indiana" required><br>
-
-            <label for="con_city">city *</label><br>
-            <input type="text" name="city" id="con_city" placeholder="e.g. hawkins" required><br>
+                <div class="field-group">
+                    <label for="con_city">city *</label>
+                    <input type="text" name="city" id="con_city" placeholder="e.g. hawkins" required>
+                </div>
+            </div>
 
             <p id="auth-message" role="status" aria-live="polite"></p>
 
