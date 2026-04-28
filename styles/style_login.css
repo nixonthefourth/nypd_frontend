@@ -1,65 +1,4 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --page: #fbfbfb;
-  --ink: #0b0b0d;
-  --accent: #6870d8;
-  --max-width: 1540px;
-  --side-gap: clamp(1.25rem, 3vw, 2.75rem);
-}
-
-body {
-  min-height: 100vh;
-  margin: 0;
-  background: var(--page);
-  color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.15;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Navigation */
-nav {
-  width: min(var(--max-width), calc(100% - (var(--side-gap) * 2)));
-  margin: 0 auto;
-  padding: 1.35rem 0;
-  display: flex;
-  justify-content: center;
-  gap: 1.8rem;
-}
-
-nav a {
-  color: var(--ink);
-  font-size: clamp(1rem, 1.25vw, 1.45rem);
-  text-decoration: none;
-  text-transform: lowercase;
-}
-
-nav a:first-child {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-
-nav a:hover,
-nav a:focus-visible {
-  color: var(--accent);
-}
-
-/* Main Container */
-body > div {
-  width: min(var(--max-width), calc(100% - (var(--side-gap) * 2)));
-  margin: 0 auto;
-}
+@import url("./base.css");
 
 body > div:first-of-type {
   padding: clamp(3rem, 6vw, 6rem) 0 clamp(2rem, 3vw, 3rem);
@@ -76,7 +15,6 @@ h1 {
   font-size: clamp(2.5rem, 4.5vw, 5rem);
   font-weight: 900;
   line-height: 1.16;
-  letter-spacing: 0;
   text-transform: uppercase;
   text-align: center;
 }
@@ -94,40 +32,16 @@ form {
 label {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
-  font-weight: 700;
-  text-transform: lowercase;
-  color: var(--ink);
 }
 
 input {
-  width: 100%;
   padding: clamp(0.9rem, 1.3vw, 1.1rem);
-  border: 2px solid var(--ink);
-  background: var(--page);
-  color: var(--ink);
-  font-family: inherit;
   font-size: clamp(0.95rem, 1.05vw, 1.05rem);
-  transition: all 0.2s ease;
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  background: #fff;
-}
-
-input::placeholder {
-  color: #666;
-  opacity: 0.7;
-}
-
-br {
-  display: none;
 }
 
 /* Status Message */
-#auth-message {
+#auth-message,
+#admin-auth-message {
   margin: 0.5rem 0 0;
   padding: 1rem;
   font-size: 1rem;
@@ -140,20 +54,11 @@ button[type="submit"] {
   width: 100%;
   margin-top: clamp(1rem, 2vw, 1.5rem);
   padding: clamp(1.1rem, 1.5vw, 1.3rem);
-  border: 3px solid var(--ink);
   background: var(--accent);
-  color: #fff;
-  font: inherit;
+  color: var(--surface);
   font-size: clamp(1.1rem, 1.3vw, 1.3rem);
   font-weight: 800;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-button[type="submit"]:hover,
-button[type="submit"]:focus {
-  transform: translateY(-2px);
 }
 
 /* Registration Link Section */
@@ -169,7 +74,6 @@ h3 {
   font-size: clamp(1.2rem, 1.5vw, 1.6rem);
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0;
 }
 
 h3 a {
@@ -185,32 +89,10 @@ h3 a:focus-visible {
   color: var(--accent);
 }
 
-/* Footer */
-footer {
-  width: 100%;
-  min-height: 6.3rem;
-  background: #050505;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: auto;
-}
-
-footer::before {
-  content: "";
-  width: min(24rem, 38vw);
-  height: 0.55rem;
-  background: #fff;
-}
-
 /* ============================================
    TABLET LANDSCAPE (768px - 1199px)
    ============================================ */
 @media (max-width: 1199px) and (min-width: 768px) {
-  :root {
-    --side-gap: clamp(2rem, 4vw, 3rem);
-  }
-
   body > div:first-of-type {
     padding: clamp(2.5rem, 5vw, 5rem) 0 clamp(1.8rem, 2.5vw, 2.5rem);
   }

@@ -30,9 +30,10 @@ function formatDateTime(value) {
     }).format(new Date(value));
 }
 
-function appendCell(row, value) {
+function appendCell(row, value, label) {
     const cell = document.createElement("td");
     cell.textContent = value ?? "";
+    cell.dataset.label = label;
     row.appendChild(cell);
 }
 
@@ -49,16 +50,16 @@ function renderNotices(notices) {
     notices.forEach((notice) => {
         const row = document.createElement("tr");
 
-        appendCell(row, notice.notice_id);
-        appendCell(row, notice.car);
-        appendCell(row, notice.address);
-        appendCell(row, formatDateTime(notice.violation_date_time));
-        appendCell(row, notice.violation_severity);
-        appendCell(row, notice.notice_status);
-        appendCell(row, notice.notification_sent ? "true" : "false");
-        appendCell(row, formatDate(notice.entry_date));
-        appendCell(row, formatDate(notice.expiry_date));
-        appendCell(row, notice.violation_description);
+        appendCell(row, notice.notice_id, "notice id");
+        appendCell(row, notice.car, "car");
+        appendCell(row, notice.address, "address");
+        appendCell(row, formatDateTime(notice.violation_date_time), "date & time");
+        appendCell(row, notice.violation_severity, "severity");
+        appendCell(row, notice.notice_status, "status");
+        appendCell(row, notice.notification_sent ? "true" : "false", "notified");
+        appendCell(row, formatDate(notice.entry_date), "entry date");
+        appendCell(row, formatDate(notice.expiry_date), "expiry date");
+        appendCell(row, notice.violation_description, "description");
 
         noticesBody.appendChild(row);
     });
