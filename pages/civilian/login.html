@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Civilian Login</title>
+    <link rel="stylesheet" href="../../styles/style_login.css">
 </head>
 <body>
     <nav>
@@ -15,14 +16,20 @@
         <h1>CIVILIAN LOGIN</h1>
 
         <form id="civilian-login-form">
-            <label for="uname">username *</label><br>
-            <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required><br>
+            <div>
+                <label for="uname">username *</label>
+                <input type="text" name="username" id="uname" placeholder="e.g. Jacknicks" required>
+            </div>
 
-            <label for="dob">dob *</label><br>
-            <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22"><br>
+            <div>
+                <label for="dob">dob *</label>
+                <input type="date" name="dob" id="dob" placeholder="e.g. 1963-11-22">
+            </div>
 
-            <label for="password">password *</label><br>
-            <input type="password" name="password" id="password" placeholder="input here" required><br>
+            <div>
+                <label for="password">password *</label>
+                <input type="password" name="password" id="password" placeholder="input here" required>
+            </div>
 
             <p id="auth-message" role="status" aria-live="polite"></p>
 
