@@ -8,7 +8,7 @@ function setDashboardMessage(message, isError = false) {
     }
 
     dashboardMessage.textContent = message;
-    dashboardMessage.style.color = isError ? "crimson" : "inherit";
+    dashboardMessage.style.color = isError ? "var(--danger)" : "inherit";
 }
 
 function formatDate(value) {

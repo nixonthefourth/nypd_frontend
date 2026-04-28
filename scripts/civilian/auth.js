@@ -9,7 +9,7 @@ function showMessage(message, isError = false) {
     }
 
     messageBox.textContent = message;
-    messageBox.style.color = isError ? "crimson" : "green";
+    messageBox.style.color = isError ? "var(--danger)" : "var(--accent)";
 }
 
 function formDataToObject(form) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *,
 *::before,
 *::after {
@@ -9,14 +11,16 @@ html {
 }
 
 :root {
-  --page: #fbfbfb;
-  --surface: #fff;
-  --ink: #0b0b0d;
-  --muted: #666;
-  --line: #e0e0e0;
-  --accent: #6870d8;
-  --danger: crimson;
-  --font-base: Arial, Helvetica, sans-serif;
+  --page: #fafafa;
+  --surface: #fafafa;
+  --ink: #0B0B0B;
+  --accent: #6570D4;
+  --warning: #F1581B;
+  --muted: color-mix(in srgb, var(--ink) 58%, var(--page));
+  --line: color-mix(in srgb, var(--ink) 12%, var(--page));
+  --hover-surface: color-mix(in srgb, var(--accent) 8%, var(--page));
+  --danger: var(--warning);
+  --font-base: "Montserrat";
   --max-width: 1540px;
   --side-gap: clamp(1.25rem, 3vw, 2.75rem);
   --content-width: min(var(--max-width), calc(100% - (var(--side-gap) * 2)));
@@ -127,7 +131,7 @@ br {
 footer {
   width: 100%;
   min-height: 6.3rem;
-  background: #050505;
+  background: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;

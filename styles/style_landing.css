@@ -59,7 +59,7 @@ body > div:first-of-type > img {
 
 .button-group button:first-child {
   background: var(--accent);
-  color: #fff;
+  color: var(--surface);
 }
 
 .button-group button:hover,

@@ -20,7 +20,7 @@ function setProfileMessage(message, isError = false) {
     }
 
     profileMessage.textContent = message;
-    profileMessage.style.color = isError ? "crimson" : "green";
+    profileMessage.style.color = isError ? "var(--danger)" : "var(--accent)";
 }
 
 function getCivilianToken() {

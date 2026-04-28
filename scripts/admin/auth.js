@@ -14,7 +14,7 @@ function showAdminMessage(message, isError = false) {
     }
 
     adminMessageBox.textContent = message;
-    adminMessageBox.style.color = isError ? "crimson" : "green";
+    adminMessageBox.style.color = isError ? "var(--danger)" : "var(--accent)";
 }
 
 function getAdminSession() {
