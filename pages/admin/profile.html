@@ -34,41 +34,8 @@
 
             <p>precinct</p>
             <input type="text" value="queens north" readonly><br>
-
-            <p>phone</p>
-            <input type="text" value="07411001102" readonly><br>
-
-            <p>email</p>
-            <input type="text" value="j.smith@nypd.gov" readonly><br>
-        </div>
-
-        <button type="button" onclick="document.getElementById('change-details-modal').style.display='block'">
-            CHANGE DETAILS
-        </button>
-    </div>
-
-
-    <!-- Change Contact Details Modal -->
-    <div id="change-details-modal" style="display:none;">
-        <div>
-            <h2>CHANGE CONTACT DETAILS FORM</h2>
-
-            <form>
-                <label for="new_phone">phone number</label><br>
-                <input type="tel" name="new_phone" id="new_phone" placeholder="e.g. 07451110021"><br>
-
-                <label for="new_email">email</label><br>
-                <input type="email" name="new_email" id="new_email" placeholder="e.g. myemail@nypd.gov"><br>
-
-                <button type="submit">CONFIRM</button>
-            </form>
-
-            <button type="button" onclick="document.getElementById('change-details-modal').style.display='none'">
-                CLOSE
-            </button>
         </div>
     </div>
-
 
     <footer></footer>
     <script src="../../scripts/admin/auth.js"></script>

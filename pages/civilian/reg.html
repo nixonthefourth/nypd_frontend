@@ -65,7 +65,15 @@
 
                 <div class="field-group">
                     <label for="password">password *</label>
-                    <input type="password" name="password" id="password" placeholder="input here" required>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="input here"
+                        pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).+"
+                        title="Use at least one capital letter, one number, and one special symbol"
+                        required
+                    >
                 </div>
 
                 <div class="field-group">

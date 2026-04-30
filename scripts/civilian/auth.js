@@ -16,6 +16,10 @@ function formDataToObject(form) {
     return Object.fromEntries(new FormData(form).entries());
 }
 
+function passwordMeetsRequirements(password) {
+    return /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/.test(password);
+}
+
 async function postJson(path, body) {
     const response = await fetch(`${API_BASE_URL}${path}`, {
         method: "POST",
@@ -69,6 +73,11 @@ if (registerForm) {
 
         if (data.password !== data.confirm_password) {
             showMessage("Passwords do not match", true);
+            return;
+        }
+
+        if (!passwordMeetsRequirements(data.password)) {
+            showMessage("Password must contain at least one capital letter, one number, and one special symbol", true);
             return;
         }
 

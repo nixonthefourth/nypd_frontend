@@ -79,7 +79,7 @@ assignment_3/
   Citation management page for viewing, creating, editing, and deleting citations.
 
 - `pages/admin/profile.html`  
-  Displays admin profile details and a contact details modal.
+  Displays admin profile details.
 
 ## Stylesheets
 
@@ -110,7 +110,7 @@ The frontend uses page-specific stylesheets that import shared variables and bas
   Admin citation management table, generated action buttons, citation modals, forms, checkbox, textarea, and delete confirmation styling.
 
 - `admin_profile.css`  
-  Admin profile grid, readonly fields, nav highlight, and contact modal styling.
+  Admin profile grid, readonly fields, and nav highlight.
 
 ## JavaScript
 
@@ -119,7 +119,7 @@ The JavaScript is split by user type.
 ### Civilian Scripts
 
 - `scripts/civilian/auth.js`  
-  Handles civilian registration and login.
+  Handles civilian registration, password validation, and login.
 
 - `scripts/civilian/dashboard.js`  
   Loads and renders civilian notices.
