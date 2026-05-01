@@ -1,0 +1,7 @@
+services:
+  frontend:
+    build:
+      context: .
+    restart: unless-stopped
+    ports:
+    - 5500:8000
