@@ -1,3 +1,4 @@
+/* Admin profile display styles. */
 @import url("./base.css");
 
 body > div:first-of-type {
@@ -51,6 +52,7 @@ input {
   font-weight: 650;
 }
 
+/* Read-only fields look intentional instead of disabled. */
 input[readonly] {
   background: color-mix(in srgb, var(--ink) 4%, var(--page));
 }
@@ -62,6 +64,7 @@ input[readonly] {
 
 }
 
+/* Profile form stacks cleanly on phones. */
 @media (max-width: 599px) {
   body > div:first-of-type {
     padding: 1.5rem 0 2rem;

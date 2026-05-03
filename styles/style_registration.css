@@ -1,3 +1,4 @@
+/* Civilian registration page styles. */
 @import url("./base.css");
 
 /* Main Container */
@@ -40,6 +41,7 @@ form h2:first-of-type {
 }
 
 /* Form Fields Container - DESKTOP (1200px+) */
+/* Group related fields into a responsive grid. */
 .form-section {
   display: flex;
   flex-wrap: wrap;
@@ -47,6 +49,7 @@ form h2:first-of-type {
 }
 
 /* Individual Field Group */
+/* Field groups keep labels and inputs moving together as columns change. */
 .field-group {
   display: flex;
   flex-direction: column;
@@ -73,6 +76,7 @@ input {
 }
 
 /* Submit Button */
+/* Submit button spans the form width for a clear final action. */
 button[type="submit"] {
   width: 100%;
   max-width: 400px;
@@ -85,9 +89,6 @@ button[type="submit"] {
   text-transform: uppercase;
 }
 
-/* ============================================
-   TABLET LANDSCAPE (768px - 1199px)
-   ============================================ */
 @media (max-width: 1199px) and (min-width: 768px) {
   h1 {
     font-size: clamp(2.2rem, 3.5vw, 3.5rem);
@@ -120,9 +121,7 @@ button[type="submit"] {
   }
 }
 
-/* ============================================
-   TABLET PORTRAIT (600px - 767px)
-   ============================================ */
+/* Collapse the registration form for mobile screens. */
 @media (max-width: 767px) and (min-width: 600px) {
   :root {
     --side-gap: 1.8rem;
@@ -174,9 +173,6 @@ button[type="submit"] {
   }
 }
 
-/* ============================================
-   MOBILE LANDSCAPE (481px - 599px)
-   ============================================ */
 @media (max-width: 599px) and (min-width: 481px) and (orientation: landscape) {
   :root {
     --side-gap: 1.5rem;
@@ -235,9 +231,6 @@ button[type="submit"] {
   }
 }
 
-/* ============================================
-   MOBILE PORTRAIT (320px - 599px)
-   ============================================ */
 @media (max-width: 599px) and (orientation: portrait),
        (max-width: 480px) {
   :root {
@@ -315,9 +308,6 @@ button[type="submit"] {
   }
 }
 
-/* ============================================
-   VERY SMALL MOBILE (< 360px)
-   ============================================ */
 @media (max-width: 359px) {
   :root {
     --side-gap: 1rem;

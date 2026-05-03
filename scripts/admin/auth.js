@@ -1,3 +1,4 @@
+// Admin login/profile helpers for the static frontend.
 const ADMIN_API_BASE_URL = "http://127.0.0.1:8000";
 const adminLoginForm = document.querySelector("#admin-login-form");
 const adminMessageBox = document.querySelector("#admin-auth-message");
@@ -8,6 +9,7 @@ const adminProfileFields = {
     lastName: document.querySelector("#admin-profile-last-name")
 };
 
+// Keep feedback in the page instead of using browser alerts.
 function showAdminMessage(message, isError = false) {
     if (!adminMessageBox) {
         return;
@@ -17,6 +19,7 @@ function showAdminMessage(message, isError = false) {
     adminMessageBox.style.color = isError ? "var(--danger)" : "var(--accent)";
 }
 
+// Admin pages trust this stored session, then verify the role before showing data.
 function getAdminSession() {
     const stored = localStorage.getItem("admin_session");
 
@@ -55,6 +58,7 @@ function requireAdminSession() {
     return session;
 }
 
+// Small wrapper for admin authentication requests.
 async function postAdminJson(path, body) {
     const response = await fetch(`${ADMIN_API_BASE_URL}${path}`, {
         method: "POST",
@@ -84,6 +88,7 @@ function fillAdminProfile(session) {
     adminProfileFields.lastName.value = session.lastName || "";
 }
 
+// Only attach the login handler on the login page.
 if (adminLoginForm) {
     adminLoginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -101,6 +106,7 @@ if (adminLoginForm) {
     });
 }
 
+// Protected pages use a body flag so the same script can guard several views.
 if (document.body.dataset.adminProtected === "true") {
     const session = requireAdminSession();
 

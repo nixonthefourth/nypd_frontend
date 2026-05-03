@@ -1,5 +1,7 @@
+/* Shared login styling for admin and civilian sign-in pages. */
 @import url("./base.css");
 
+/* Centre the login panel without adding an extra wrapper card. */
 body > div:first-of-type {
   padding: clamp(3rem, 6vw, 6rem) 0 clamp(2rem, 3vw, 3rem);
   flex: 1;
@@ -20,6 +22,7 @@ h1 {
 }
 
 /* Form */
+/* Login forms are short, so a single-column layout is easiest to scan. */
 form {
   width: 100%;
   max-width: 520px;
@@ -40,6 +43,7 @@ input {
 }
 
 /* Status Message */
+/* Reserve space for backend validation messages. */
 #auth-message,
 #admin-auth-message {
   margin: 0.5rem 0 0;
@@ -89,9 +93,6 @@ h3 a:focus-visible {
   color: var(--accent);
 }
 
-/* ============================================
-   TABLET LANDSCAPE (768px - 1199px)
-   ============================================ */
 @media (max-width: 1199px) and (min-width: 768px) {
   body > div:first-of-type {
     padding: clamp(2.5rem, 5vw, 5rem) 0 clamp(1.8rem, 2.5vw, 2.5rem);
@@ -130,9 +131,6 @@ h3 a:focus-visible {
   }
 }
 
-/* ============================================
-   TABLET PORTRAIT (600px - 767px)
-   ============================================ */
 @media (max-width: 767px) and (min-width: 600px) {
   :root {
     --side-gap: 1.8rem;
@@ -184,9 +182,7 @@ h3 a:focus-visible {
   }
 }
 
-/* ============================================
-   MOBILE LANDSCAPE (481px - 599px)
-   ============================================ */
+/* Small-screen tweaks for the compact login pages. */
 @media (max-width: 599px) and (min-width: 481px) and (orientation: landscape) {
   :root {
     --side-gap: 1.5rem;
@@ -246,9 +242,6 @@ h3 a:focus-visible {
   }
 }
 
-/* ============================================
-   MOBILE PORTRAIT (320px - 599px)
-   ============================================ */
 @media (max-width: 599px) and (orientation: portrait),
        (max-width: 480px) {
   :root {
@@ -325,9 +318,6 @@ h3 a:focus-visible {
   }
 }
 
-/* ============================================
-   VERY SMALL MOBILE (< 360px)
-   ============================================ */
 @media (max-width: 359px) {
   :root {
     --side-gap: 1rem;

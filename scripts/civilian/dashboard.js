@@ -1,3 +1,4 @@
+// Civilian dashboard loads the logged-in driver's notices.
 const API_BASE_URL = "http://127.0.0.1:8000";
 const noticesBody = document.querySelector("#civilian-notices-body");
 const dashboardMessage = document.querySelector("#dashboard-message");
@@ -30,6 +31,7 @@ function formatDateTime(value) {
     }).format(new Date(value));
 }
 
+// Store a label on each cell so CSS can show table rows cleanly on mobile.
 function appendCell(row, value, label) {
     const cell = document.createElement("td");
     cell.textContent = value ?? "";
@@ -37,6 +39,7 @@ function appendCell(row, value, label) {
     row.appendChild(cell);
 }
 
+// Replace the whole table body whenever fresh notice data arrives.
 function renderNotices(notices) {
     noticesBody.replaceChildren();
 
@@ -65,6 +68,7 @@ function renderNotices(notices) {
     });
 }
 
+// A missing token means the user should go back through the login flow.
 async function loadCivilianNotices() {
     const token = localStorage.getItem("civilian_access_token");
     const driverId = localStorage.getItem("civilian_driver_id");
@@ -96,6 +100,7 @@ async function loadCivilianNotices() {
     }
 }
 
+// Only run the fetch on pages that include the notices table.
 if (noticesBody) {
     loadCivilianNotices();
 }

@@ -1,3 +1,4 @@
+/* Civilian notices dashboard. */
 @import url("./base.css");
 
 /* Main Container */
@@ -19,6 +20,7 @@ h1 {
 }
 
 /* Dashboard Message */
+/* Message line is used for loading, empty, and error states. */
 #dashboard-message {
   margin: 0 0 clamp(1.5rem, 2.5vw, 2rem);
   padding: 1rem;
@@ -35,6 +37,7 @@ h1 {
 }
 
 /* Table */
+/* Desktop keeps notices in a traditional wide table. */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -93,9 +96,6 @@ tbody:empty::after {
   font-size: clamp(1rem, 1.1vw, 1.15rem);
 }
 
-/* ============================================
-   TABLET LANDSCAPE (768px - 1199px)
-   ============================================ */
 @media (max-width: 1199px) and (min-width: 768px) {
   body > div {
     padding: clamp(1.8rem, 3.5vw, 3.5rem) 0 clamp(2.5rem, 4vw, 4rem);
@@ -172,10 +172,6 @@ tbody:empty::after {
   }
 }
 
-/* ============================================
-   TABLET PORTRAIT (600px - 767px)
-   Card-based layout for better mobile readability
-   ============================================ */
 @media (max-width: 767px) and (min-width: 600px) {
   body > div {
     padding: 2rem 0 2.5rem;
@@ -216,10 +212,7 @@ tbody:empty::after {
   }
 }
 
-/* ============================================
-   MOBILE LANDSCAPE (481px - 599px)
-   Card layout optimized for landscape
-   ============================================ */
+/* On smaller screens the table turns into labelled rows using data-label. */
 @media (max-width: 599px) and (min-width: 481px) and (orientation: landscape) {
   :root {
     --side-gap: 1.5rem;
@@ -257,10 +250,6 @@ tbody:empty::after {
   }
 }
 
-/* ============================================
-   MOBILE PORTRAIT (320px - 599px)
-   Vertical card layout
-   ============================================ */
 @media (max-width: 599px) and (orientation: portrait),
        (max-width: 480px) {
   body > div {
@@ -287,9 +276,6 @@ tbody:empty::after {
   }
 }
 
-/* ============================================
-   VERY SMALL MOBILE (< 360px)
-   ============================================ */
 @media (max-width: 359px) {
   h1 {
     font-size: 1.6rem;

@@ -1,3 +1,4 @@
+/* Shared foundation used by the individual page styles. */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 *,
@@ -10,6 +11,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Theme values live here so each page keeps the same spacing, borders, and colours. */
 :root {
   --page: #fafafa;
   --surface: #fafafa;
@@ -29,6 +31,7 @@ html {
   --focus-shift: translateY(-2px);
 }
 
+/* Basic page shell: content stacks vertically and footer stays at the bottom. */
 body {
   min-height: 100vh;
   margin: 0;
@@ -46,6 +49,7 @@ body > div {
   margin-inline: auto;
 }
 
+/* Common top navigation. */
 nav {
   padding: 1.35rem 0;
   display: flex;
@@ -91,6 +95,7 @@ label {
   text-transform: lowercase;
 }
 
+/* Form controls deliberately use the same heavy border as the page style. */
 input,
 select,
 textarea {
@@ -128,6 +133,7 @@ br {
   display: none;
 }
 
+/* Footer is decorative but consistent across the static pages. */
 footer {
   width: 100%;
   min-height: 6.3rem;
@@ -145,6 +151,7 @@ footer::before {
   background: var(--surface);
 }
 
+/* Responsive spacing adjustments for tablet and phone widths. */
 @media (max-width: 1199px) and (min-width: 768px) {
   :root {
     --side-gap: clamp(2rem, 4vw, 3rem);

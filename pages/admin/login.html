@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/style_login.css">
 </head>
 <body>
+    <!-- Login page keeps navigation minimal so the admin path is clear. -->
     <nav>
         <a href="../../index.html">home</a>
         <a href="login.html">login</a>
@@ -15,6 +16,7 @@
     <div>
         <h1>ADMIN LOGIN</h1>
 
+        <!-- auth.js posts these credentials and stores the returned admin session. -->
         <form id="admin-login-form">
             <label for="uname">username *</label><br>
             <input type="text" name="username" id="uname" placeholder="e.g. officer_user" required><br>

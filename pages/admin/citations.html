@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/admin_citations.css">
 </head>
 <body data-admin-protected="true">
+    <!-- Admin-only navigation; auth.js redirects if the stored session is missing. -->
     <nav>
         <a href="dashboard.html">dashboard</a>
         <a href="citations.html">citations</a>
@@ -22,6 +23,7 @@
 
         <p id="citation-message" role="status" aria-live="polite"></p>
 
+        <!-- Citation rows and action buttons are rendered from the API response. -->
         <h2>ALL CITATIONS</h2>
 
         <table>
@@ -44,6 +46,7 @@
         </table>
     </div>
 
+    <!-- Create modal collects the fields the backend needs for a new notice. -->
     <div id="create-citation-modal" role="dialog" aria-modal="true" aria-labelledby="create-citation-title" hidden>
         <div>
             <h2 id="create-citation-title">CREATE NEW CITATION</h2>
@@ -117,6 +120,7 @@
         </div>
     </div>
 
+    <!-- Read-only modal used when an admin wants to inspect one citation. -->
     <div id="view-citation-modal" role="dialog" aria-modal="true" aria-labelledby="view-citation-title" hidden>
         <div>
             <h2 id="view-citation-title">CITATION DETAILS</h2>
@@ -172,6 +176,7 @@
         </div>
     </div>
 
+    <!-- Edit modal reuses the notice payload shape used by create. -->
     <div id="edit-citation-modal" role="dialog" aria-modal="true" aria-labelledby="edit-citation-title" hidden>
         <div>
             <h2 id="edit-citation-title">EDIT CITATION</h2>
@@ -238,6 +243,7 @@
         </div>
     </div>
 
+    <!-- Small confirmation step before a citation is removed. -->
     <div id="delete-citation-modal" role="dialog" aria-modal="true" aria-labelledby="delete-citation-title" hidden>
         <div>
             <h2 id="delete-citation-title">DELETE CITATION</h2>

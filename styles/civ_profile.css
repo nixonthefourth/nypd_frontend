@@ -1,3 +1,4 @@
+/* Civilian profile and contact-update modal styles. */
 @import url("./base.css");
 
 body > div:first-of-type {
@@ -85,6 +86,7 @@ input[readonly] {
   display: none;
 }
 
+/* Modal overlay for the editable contact details. */
 #change-details-modal {
   position: fixed;
   inset: 0;
@@ -116,6 +118,7 @@ h2 {
   text-transform: uppercase;
 }
 
+/* Profile fields are shown in a neat grid but most remain read-only. */
 #civilian-contact-form {
   display: flex;
   flex-direction: column;
@@ -144,6 +147,7 @@ label {
   }
 }
 
+/* Stack profile fields and modal controls on narrow screens. */
 @media (max-width: 599px) {
   body > div:first-of-type {
     padding: 1.5rem 0 2rem;

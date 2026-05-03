@@ -1,3 +1,4 @@
+// Citation management keeps the current table data in memory for modal actions.
 const CITATIONS_API_BASE_URL = "http://127.0.0.1:8000";
 const citationsTableBody = document.querySelector("#citations-table-body");
 const citationMessage = document.querySelector("#citation-message");
@@ -16,6 +17,7 @@ function setCitationMessage(message) {
     citationMessage.textContent = message;
 }
 
+// Pull the bearer token out of the admin session saved during login.
 function getAdminToken() {
     const stored = localStorage.getItem("admin_session");
 
@@ -85,6 +87,7 @@ function findCitation(noticeId) {
     return citations.find((citation) => citation.notice_id === noticeId);
 }
 
+// Shared request helper so every admin notice call handles auth and errors the same way.
 async function requestJson(path, options = {}) {
     const token = getAdminToken();
 
@@ -110,6 +113,7 @@ async function requestJson(path, options = {}) {
     return payload;
 }
 
+// Match the nested notice shape expected by the backend API.
 function formToNoticePayload(form) {
     const data = Object.fromEntries(new FormData(form).entries());
 
@@ -136,6 +140,7 @@ function formToNoticePayload(form) {
     };
 }
 
+// Render the table by hand so action buttons can keep their notice id attached.
 function renderCitations() {
     citationsTableBody.replaceChildren();
 
@@ -192,6 +197,7 @@ function renderCitations() {
     });
 }
 
+// Fill the read-only modal from the citation already loaded in memory.
 function showCitation(noticeId) {
     const citation = findCitation(noticeId);
 
@@ -218,6 +224,7 @@ function showCitation(noticeId) {
     openModal(viewModal);
 }
 
+// Copy the selected citation into editable controls, converting dates for HTML inputs.
 function editCitation(noticeId) {
     const citation = findCitation(noticeId);
 
@@ -251,6 +258,7 @@ function confirmDeleteCitation(noticeId) {
     openModal(deleteModal);
 }
 
+// Refresh the cached citation list and repaint the table.
 async function loadCitations() {
     setCitationMessage("Loading citations...");
 
@@ -328,6 +336,7 @@ async function deleteCitation() {
     }
 }
 
+// Wire the modal controls once the page markup is ready.
 document.querySelector("#open-create-citation-modal").addEventListener("click", () => openModal(createModal));
 document.querySelector("#close-create-citation-modal").addEventListener("click", () => closeModal(createModal));
 document.querySelector("#close-view-citation-modal").addEventListener("click", () => closeModal(viewModal));

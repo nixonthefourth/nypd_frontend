@@ -1,8 +1,10 @@
+// Civilian login and registration share this small auth script.
 const API_BASE_URL = "http://127.0.0.1:8000";
 const loginForm = document.querySelector("#civilian-login-form");
 const registerForm = document.querySelector("#civilian-register-form");
 const messageBox = document.querySelector("#auth-message");
 
+// Show validation/API feedback beside the form.
 function showMessage(message, isError = false) {
     if (!messageBox) {
         return;
@@ -16,10 +18,12 @@ function formDataToObject(form) {
     return Object.fromEntries(new FormData(form).entries());
 }
 
+// Keep the frontend rule aligned with the password hint shown in the form.
 function passwordMeetsRequirements(password) {
     return /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/.test(password);
 }
 
+// Basic JSON POST helper for login and registration.
 async function postJson(path, body) {
     const response = await fetch(`${API_BASE_URL}${path}`, {
         method: "POST",
@@ -43,6 +47,7 @@ function saveCivilianSession(payload) {
     localStorage.setItem("civilian_driver_id", payload.driver_id);
 }
 
+// Login page handler.
 if (loginForm) {
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -64,6 +69,7 @@ if (loginForm) {
     });
 }
 
+// Registration page handler.
 if (registerForm) {
     registerForm.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -81,6 +87,7 @@ if (registerForm) {
             return;
         }
 
+        // Shape the flat form fields into the nested object expected by the backend.
         const payload = {
             address: {
                 zip_code: data.zip_code,

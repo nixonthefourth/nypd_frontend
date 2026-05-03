@@ -1,3 +1,4 @@
+/* Landing page styles for the public entry point. */
 @import url("./base.css");
 
 nav {
@@ -11,6 +12,7 @@ img {
   object-fit: cover;
 }
 
+/* Hero section with the two role choices. */
 body > div:first-of-type {
   display: grid;
   grid-template-columns: minmax(23rem, 0.82fr) minmax(34rem, 1fr);
@@ -37,6 +39,7 @@ body > div:first-of-type > img {
   aspect-ratio: 1 / 1;
 }
 
+/* Keep the two entry buttons balanced on desktop and stacked on small screens. */
 .button-group {
   grid-area: buttons;
   width: min(100%, 21.5rem);
@@ -77,6 +80,7 @@ body > div:first-of-type > img {
   text-decoration: none;
 }
 
+/* About section gives the second image room without turning it into a card. */
 body > div:nth-of-type(2) {
   display: grid;
   grid-template-columns: 0.43fr 0.56fr 1fr;

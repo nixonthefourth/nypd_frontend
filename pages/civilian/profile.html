@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/civ_profile.css">
 </head>
 <body>
+    <!-- Civilian navigation shared with the dashboard. -->
     <nav>
         <a href="dashboard.html">dashboard</a>
         <a href="profile.html">profile</a>
@@ -15,6 +16,7 @@
     <div>
         <h1>PROFILE</h1>
 
+        <!-- Profile fields are populated from the current civilian account. -->
         <div>
             <p>first name</p>
             <input type="text" id="civilian-first-name" readonly><br>
@@ -42,6 +44,7 @@
         </button>
     </div>
 
+    <!-- Only contact details can be changed from the frontend profile page. -->
     <div id="change-details-modal" role="dialog" aria-modal="true" aria-labelledby="change-details-title" hidden>
         <div>
             <h2 id="change-details-title">CHANGE CONTACT DETAILS FORM</h2>

@@ -1,3 +1,4 @@
+/* Admin dashboard tables, filters, and summary cards. */
 @import url("./base.css");
 
 body > div {
@@ -28,6 +29,7 @@ h1 + h2 {
   margin-top: 0;
 }
 
+/* Overview cards sit in a responsive grid above the filter form. */
 h2 + div {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -63,6 +65,7 @@ h2 + div > div p:last-child {
   line-height: 1;
 }
 
+/* Filters stay compact so the data tables remain the focus. */
 #dashboard-filter-form {
   display: grid;
   grid-template-columns: minmax(14rem, 1fr) minmax(14rem, 1fr) minmax(12rem, 0.6fr);
@@ -100,6 +103,7 @@ select {
   text-align: center;
 }
 
+/* Admin tables share a dense bordered style for quick scanning. */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -159,6 +163,7 @@ td {
   }
 }
 
+/* Mobile dashboard stacks filters and tables with tighter spacing. */
 @media (max-width: 767px) {
   h2 + div {
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -1,3 +1,4 @@
+// Civilian profile view reads from and writes to the current user endpoint.
 const PROFILE_API_BASE_URL = "http://127.0.0.1:8000";
 const profileMessage = document.querySelector("#profile-message");
 const contactModal = document.querySelector("#change-details-modal");
@@ -14,6 +15,7 @@ const profileFields = {
     email: document.querySelector("#civilian-email")
 };
 
+// Status text doubles as simple success/error feedback for profile actions.
 function setProfileMessage(message, isError = false) {
     if (!profileMessage) {
         return;
@@ -27,6 +29,7 @@ function getCivilianToken() {
     return localStorage.getItem("civilian_access_token");
 }
 
+// Keep the redirect check in one place before profile requests.
 function requireCivilianToken() {
     const token = getCivilianToken();
 
@@ -54,6 +57,7 @@ function closeContactModal() {
     contactModal.hidden = true;
 }
 
+// Populate both the read-only profile and the editable contact modal.
 function fillCivilianProfile(profile) {
     profileFields.firstName.value = profile.first_name || "";
     profileFields.lastName.value = profile.last_name || "";
@@ -68,6 +72,7 @@ function fillCivilianProfile(profile) {
     }
 }
 
+// Shared authenticated request helper for profile reads and updates.
 async function requestCivilianProfile(path, options = {}) {
     const token = requireCivilianToken();
 
@@ -109,6 +114,7 @@ async function loadCivilianProfile() {
     }
 }
 
+// Submit only the contact fields that the modal allows the user to change.
 async function updateCivilianContact(event) {
     event.preventDefault();
     setProfileMessage("");
@@ -144,6 +150,7 @@ if (closeContactModalButton) {
     closeContactModalButton.addEventListener("click", closeContactModal);
 }
 
+// Load the profile once the form exists on the page.
 if (contactForm) {
     contactForm.addEventListener("submit", updateCivilianContact);
     loadCivilianProfile();

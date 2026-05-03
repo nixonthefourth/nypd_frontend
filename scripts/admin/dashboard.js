@@ -1,3 +1,4 @@
+// Admin dashboard fetches live summary data from the FastAPI backend.
 const DASHBOARD_API_BASE_URL = "http://127.0.0.1:8000";
 const filterForm = document.querySelector("#dashboard-filter-form");
 const districtFilter = document.querySelector("#district-filter");
@@ -55,6 +56,7 @@ function formatDateTime(value) {
     }).format(new Date(value));
 }
 
+// Reused by the small count tables that all share the same two-column shape.
 function renderCountRows(tableBody, rows, emptyLabel) {
     tableBody.replaceChildren();
 
@@ -74,6 +76,7 @@ function renderCountRows(tableBody, rows, emptyLabel) {
     });
 }
 
+// Preserve the current district when the API refreshes the filter options.
 function renderDistrictOptions(districtCounts) {
     const selectedDistrict = districtFilter.value;
     districtFilter.replaceChildren();
@@ -122,6 +125,7 @@ function renderNoticeRows(notices) {
     });
 }
 
+// Split the payload into summary cards, breakdown tables, and notice rows.
 function renderDashboard(payload) {
     dashboardStats.total.textContent = payload.overview.total_citations;
     dashboardStats.active.textContent = payload.overview.active_citations;
@@ -136,6 +140,7 @@ function renderDashboard(payload) {
     renderNoticeRows(payload.notices);
 }
 
+// Build query parameters from the filter form before calling the dashboard endpoint.
 async function loadDashboardStats() {
     const session = getDashboardAdminSession();
 
@@ -174,6 +179,7 @@ async function loadDashboardStats() {
     }
 }
 
+// Dashboard script is only active when its filter form is on the page.
 if (filterForm) {
     filterForm.addEventListener("submit", (event) => {
         event.preventDefault();

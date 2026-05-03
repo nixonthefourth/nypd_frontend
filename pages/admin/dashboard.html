@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/admin_dashboard.css">
 </head>
 <body data-admin-protected="true">
+    <!-- Admin pages share this protected navigation. -->
     <nav>
         <a href="dashboard.html">dashboard</a>
         <a href="citations.html">citations</a>
@@ -16,6 +17,7 @@
     <div>
         <h1>ADMIN DASHBOARD</h1>
 
+        <!-- Summary cards are filled by scripts/admin/dashboard.js. -->
         <h2>SYSTEM OVERVIEW</h2>
 
         <div>
@@ -45,6 +47,7 @@
             </div>
         </div>
 
+        <!-- Filters are sent back to the API when the form is submitted. -->
         <h2>FILTERS</h2>
 
         <form id="dashboard-filter-form">
@@ -64,6 +67,7 @@
 
         <p id="dashboard-stats-message" role="status" aria-live="polite"></p>
 
+        <!-- Breakdown tables help the admin scan the same data in different ways. -->
         <h2>CITATIONS BY VIOLATION TYPE</h2>
 
         <table>
@@ -103,6 +107,7 @@
             </tbody>
         </table>
 
+        <!-- Full notice rows for the current filter selection. -->
         <h2>FILTERED NOTICES</h2>
 
         <table>
